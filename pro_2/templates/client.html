@@ -1,0 +1,17 @@
+<html>
+<head>
+    <script type="text/javascript" src="https://cdn.bootcss.com/socket.io/2.1.1/socket.io.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        var socket = io.connect('ws://' + document.domain + ':' + location.port + '/ws');
+        socket.on('connect', function () {
+            var data = {"first_number":1, "second_number":2};
+            socket.emit('devide', JSON.stringify(data));
+        });
+        socket.on('response_devide', function (data) {
+            console.log(data);
+        })
+    </script>
+</head>
+<body>
+</body>
+</html>
